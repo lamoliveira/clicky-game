@@ -21,7 +21,8 @@ function shuffleFriends(array) {
   return array;
 };
 
-function loadGifs(animal, arraygif) {
+// function loadGifs(animal, arraygif) {
+function loadGifs(animal, cb) {
   console.log(animal);
   var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
     animal + "&api_key=dc6zaTOxFJmzC&limit=10";
@@ -57,7 +58,7 @@ function loadGifs(animal, arraygif) {
       }
       console.log(array);
       console.log("xxx");
-      return array;
+      cb(array);
     });
 };
 
@@ -79,8 +80,9 @@ class App extends Component {
     console.log("name:" + name);
     //let arraygif = [{}];
 
-    let arraygif = loadGifs(name, friends);
-    this.setState({ friends: arraygif });
+    // let arraygif = loadGifs(name, friends);
+    loadGifs(name, arraygif => this.setState({ friends: arraygif }));
+    // this.setState({ friends: arraygif });
     let arraygif2 = [{
       "id": 1,
       "name": "SpongeBob",
@@ -102,6 +104,7 @@ class App extends Component {
       "occupation": "Cashier",
       "location": "An Easter Island Head"
     }];
+   // this.setState({ friends: arraygif2 });
   };
 
 
@@ -141,7 +144,7 @@ class App extends Component {
   };
 
   handleShuffle = () => {
-    let shuffledFriends = shuffleFriends(friends);
+    let shuffledFriends = shuffleFriends(this.state.friends);
     this.setState({ friends: shuffledFriends });
   };
 
