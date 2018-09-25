@@ -1,10 +1,13 @@
 import React, { Component } from "react";
 import FriendCard from "./components/FriendCard";
+import "./App.css";
 import Wrapper from "./components/Wrapper";
 import Title from "./components/Title";
 import friends from "./friends.json";
 import Nav from "./components/nav";
-import "./App.css";
+import Container from "./Container";
+import Row from "./Row";
+import Column from "./Column";
 
 class App extends Component {
   // Setting this.state.friends to the friends json array
@@ -34,13 +37,19 @@ class App extends Component {
           topscore={this.state.topscore}
         />
         <Title>Click on an image to earn points, but don't click on any more than once!</Title>
-        {this.state.friends.map(friend => (
-          <FriendCard
-            image={friend.image}
-            id={friend.id}
-            location={friend.location}
-          />
-        ))}
+        <Container>
+          <Row>
+            {this.state.friends.map(friend => (
+              <Column size="md-3 sm-6">
+                <FriendCard
+                  image={friend.image}
+                  id={friend.id}
+                  location={friend.location}
+                />
+              </Column>
+            ))}
+          </Row>
+        </Container>
       </Wrapper>
     );
   }
