@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "name": "cog"
+  },
+  {
+    "id": 2,
+    "name": "cat"
+  },
+  {
+    "id": 3,
+    "name": "rabbit"
+  },
+  {
+    "id": 4,
+    "name": "hamster"
+  },
+  {
+    "id": 5,
+    "name": "skunk"
+  },
+  {
+    "id": 6,
+    "name": "goldfish"
+  },  
+  {
+    "id": 7,
+    "name": "bird"
+  },
+  {
+    "id": 8,
+    "name": "ferret"
+  },
+  {
+    "id": 9,
+    "name": "turtle"
+  },
+  {
+    "id": 10,
+    "name": "chicken"
+  }
+]
